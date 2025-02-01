@@ -2,7 +2,7 @@
   "name": "guitar-scale-visualizer",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://yourusername.github.io/guitar-scale-visualizer",
+  "homepage": "https://Can1Cyp2.github.io/guitar-scale-visualizer",
   "dependencies": {
     "cra-template": "1.2.0",
     "guitar-scale-visualizer": "file:",

@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/guitar-scale-visualizer/static/css/main.250d669c.css",
+    "main.js": "/guitar-scale-visualizer/static/js/main.170b6479.js",
+    "index.html": "/guitar-scale-visualizer/index.html",
+    "main.250d669c.css.map": "/guitar-scale-visualizer/static/css/main.250d669c.css.map",
+    "main.170b6479.js.map": "/guitar-scale-visualizer/static/js/main.170b6479.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.250d669c.css",
+    "static/js/main.170b6479.js"
+  ]
+}

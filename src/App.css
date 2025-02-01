@@ -1,0 +1,220 @@
+/* General Styles */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.App {
+  text-align: center;
+  padding: 40px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.fretboard {
+  position: relative;
+  margin: 30px auto;
+  width: 100%;
+  max-width: 650px;
+  padding: 40px 20px 50px;
+  background: #1e1e1e;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  overflow-x: hidden;
+}
+
+.string {
+  display: flex;
+  height: 60px;
+  border-bottom: 2px solid #555;
+  position: relative;
+  background: linear-gradient(to bottom, #2a2a2a 0%, #1e1e1e 50%, #2a2a2a 100%);
+}
+
+.fret {
+  flex: 1;
+  border-right: 2px solid #777;
+  position: relative;
+  min-width: 50px;
+  max-width: 50px;
+}
+
+.fretboard .string .fret:nth-child(n + 13) {
+  display: none;
+}
+
+.fret:first-child {
+  width: 50px;
+  border-right: 4px solid #bbb;
+  background: #333;
+  position: relative;
+}
+
+.note-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.note-circle {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #aa6622;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.fret-number {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  font-weight: bold;
+  color: #e0e0e0;
+  pointer-events: none;
+}
+
+/* Controls Section */
+.controls {
+  margin: 20px auto;
+  padding: 20px;
+  background: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+}
+
+.control-group {
+  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.tuning-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 3%;
+}
+
+.tuning-select-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.tuning-select {
+  width: 102%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+.tuning-select select {
+  width: 65px;
+  padding: 8px;
+  font-size: 18px;
+}
+
+.tuning-select select:nth-child(2) {
+  width: 60%;
+  padding: 8px;
+  font-size: 18px;
+}
+
+.root-scale-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.root-scale-container .control-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.root-scale-container label {
+  font-weight: bold;
+  text-align: center;
+}
+
+.label {
+  font-weight: bold;
+  text-align: center;
+}
+
+.root-scale-container select {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Increased spacing sections:
+ for 'Tuning:' label */
+label[name="tuning"] {
+  margin-bottom: 15px;
+}
+/* 
+ for 'preset' label */
+label[name="tuning-preset"] {
+  margin-top: 35px;
+}
+
+/* for tuning preset selector: */
+#tuningPreset {
+  margin-top: 35px;
+  padding: 14px;
+  font-size: 20px;
+}
+
+select,
+button {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #555;
+  font-size: 18px;
+  cursor: pointer;
+  background: #333;
+  color: #e0e0e0;
+}
+
+button {
+  background: #aa6622;
+  color: white;
+  font-weight: bold;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #8a5522;
+}

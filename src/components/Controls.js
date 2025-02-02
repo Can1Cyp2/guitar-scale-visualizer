@@ -15,6 +15,18 @@ const tuningPresets = {
   DADGAD: ["D2", "A2", "D3", "G3", "A3", "D4"],
 };
 
+// Mapping of sharps to flats for visual conversion
+const sharpToFlat = {
+  "A#": "Bb",
+  "C#": "Db",
+  "D#": "Eb",
+  "F#": "Gb",
+  "G#": "Ab",
+};
+
+// Function to convert sharp notes to flats
+const convertToFlat = (note) => sharpToFlat[note] || note;
+
 const Controls = ({
   selectedScale,
   setSelectedScale,
@@ -22,6 +34,8 @@ const Controls = ({
   setTuning,
   rootNote,
   setRootNote,
+  useFlats,
+  setUseFlats,
 }) => {
   const [selectedPreset, setSelectedPreset] = useState("Standard (E)");
 
@@ -33,6 +47,12 @@ const Controls = ({
 
   return (
     <div className="controls">
+      <button
+        className="toggle-sharp-flat"
+        onClick={() => setUseFlats(!useFlats)}
+      >
+        {useFlats ? "♯" : "♭"} {/* Convert Display to flats */}
+      </button>
       <div className="root-scale-container">
         {/* Root Note Selector */}
         <div className="control-group">
@@ -44,7 +64,7 @@ const Controls = ({
           >
             {tunings.notes.map((note) => (
               <option key={note} value={note}>
-                {note}
+                {useFlats ? convertToFlat(note) : note}
               </option>
             ))}
           </select>
@@ -74,7 +94,14 @@ const Controls = ({
         <label name="tuning">Tuning:</label>
         <div className="tuning-select-wrapper">
           {tuning.map((note, i) => {
-            const [noteName, octave] = note.match(/([A-G#]+)(\d)/).slice(1);
+            const match = note.match(/([A-G#]+)(\d)/);
+            if (!match) {
+              console.error(`Invalid tuning format at index ${i}:`, note);
+              return null;
+            }
+
+            const [_, noteName, octave] = match;
+
             return (
               <div key={i} className="tuning-select">
                 <select
@@ -87,7 +114,7 @@ const Controls = ({
                 >
                   {tunings.notes.map((n) => (
                     <option key={n} value={n}>
-                      {n}
+                      {useFlats ? convertToFlat(n) : n}
                     </option>
                   ))}
                 </select>

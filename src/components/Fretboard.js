@@ -28,35 +28,40 @@ const Fretboard = ({ tuning, selectedScale, numFrets = 12, useFlats }) => {
   return (
     <div className="fretboard-container">
       <div className="fretboard">
-        {tuning.map((stringTuning, stringIndex) => (
-          <div key={stringIndex} className="string">
-            {Array.from({ length: numFrets }).map((_, fret) => {
-              const note = notes[stringIndex][fret].replace(/\d/, "");
-              const convertedNote = convertToFlat(note, useFlats);
-              const isInScale =
-                selectedScale?.notes &&
-                selectedScale.notes.some(
-                  (scaleNote) => scaleNote.replace(/\d/, "") === note
-                );
+        {tuning
+          .slice()
+          .reverse()
+          .map((stringTuning, stringIndex) => (
+            <div key={stringIndex} className="string">
+              {Array.from({ length: numFrets }).map((_, fret) => {
+                const note = notes[tuning.length - 1 - stringIndex][
+                  fret
+                ].replace(/\d/, "");
+                const convertedNote = convertToFlat(note, useFlats);
+                const isInScale =
+                  selectedScale?.notes &&
+                  selectedScale.notes.some(
+                    (scaleNote) => scaleNote.replace(/\d/, "") === note
+                  );
 
-              return (
-                <div key={fret} className="fret">
-                  {isInScale &&
-                    convertedNote && ( // Only show notes if they exist
-                      <div className="note-marker">
-                        <div className="note-circle">{convertedNote}</div>
-                      </div>
-                    )}
-                  {/* Only display fret numbers on the bottom row */}
-                  {fretsToLabel.includes(fret) &&
-                    stringIndex === tuning.length - 1 && (
-                      <span className="fret-number">{fret}</span>
-                    )}
-                </div>
-              );
-            })}
-          </div>
-        ))}
+                return (
+                  <div key={fret} className="fret">
+                    {isInScale &&
+                      convertedNote && ( // Only show notes if they exist
+                        <div className="note-marker">
+                          <div className="note-circle">{convertedNote}</div>
+                        </div>
+                      )}
+                    {/* Only display fret numbers on the bottom row */}
+                    {fretsToLabel.includes(fret) &&
+                      stringIndex === tuning.length - 1 && (
+                        <span className="fret-number">{fret}</span>
+                      )}
+                  </div>
+                );
+              })}
+            </div>
+          ))}
       </div>
     </div>
   );

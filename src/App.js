@@ -8,7 +8,7 @@ function App() {
   const [tuning, setTuning] = useState(tunings.standard);
   const [rootNote, setRootNote] = useState("C");
   const [selectedScale, setSelectedScale] = useState(scales[0]);
-  const [useFlats, setUseFlats] = useState(false); // Move useFlats to App.js
+  const [useFlats, setUseFlats] = useState(false);
 
   const scaleNotes = getScaleNotes(`${rootNote}4`, selectedScale.intervals);
 
@@ -28,12 +28,12 @@ function App() {
         rootNote={rootNote}
         setRootNote={setRootNote}
         useFlats={useFlats}
-        setUseFlats={setUseFlats} // Pass down the toggle
+        setUseFlats={setUseFlats}
       />
       <Fretboard
         tuning={tuning}
         selectedScale={{ ...selectedScale, notes: scaleNotes }}
-        useFlats={useFlats} // Pass down to Fretboard
+        useFlats={useFlats}
       />
     </div>
   );

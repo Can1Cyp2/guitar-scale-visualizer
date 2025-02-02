@@ -31,7 +31,7 @@ const Fretboard = ({ tuning, selectedScale, numFrets = 12, useFlats }) => {
         {tuning.map((stringTuning, stringIndex) => (
           <div key={stringIndex} className="string">
             {Array.from({ length: numFrets }).map((_, fret) => {
-              const note = notes[stringIndex][fret].replace(/\d/, ""); // Remove octave
+              const note = notes[stringIndex][fret].replace(/\d/, "");
               const convertedNote = convertToFlat(note, useFlats);
               const isInScale =
                 selectedScale?.notes &&

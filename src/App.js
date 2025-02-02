@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Fretboard from "./components/Fretboard";
 import Controls from "./components/Controls";
 import { scales, tunings, getScaleNotes } from "./utils/musicData";
@@ -11,6 +11,11 @@ function App() {
   const [useFlats, setUseFlats] = useState(false); // Move useFlats to App.js
 
   const scaleNotes = getScaleNotes(`${rootNote}4`, selectedScale.intervals);
+
+  // Dynamically change the page title:
+  useEffect(() => {
+    document.title = "Guitar Scale Visualizer 🎸";
+  }, []);
 
   return (
     <div className="App">

@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/guitar-scale-visualizer/static/css/main.f176315b.css",
-    "main.js": "/guitar-scale-visualizer/static/js/main.9ba04a2f.js",
+    "main.js": "/guitar-scale-visualizer/static/js/main.efbcd269.js",
     "index.html": "/guitar-scale-visualizer/index.html",
     "main.f176315b.css.map": "/guitar-scale-visualizer/static/css/main.f176315b.css.map",
-    "main.9ba04a2f.js.map": "/guitar-scale-visualizer/static/js/main.9ba04a2f.js.map"
+    "main.efbcd269.js.map": "/guitar-scale-visualizer/static/js/main.efbcd269.js.map"
   },
   "entrypoints": [
     "static/css/main.f176315b.css",
-    "static/js/main.9ba04a2f.js"
+    "static/js/main.efbcd269.js"
   ]
 }

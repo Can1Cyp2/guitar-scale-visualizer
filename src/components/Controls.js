@@ -3,7 +3,7 @@ import { scales, tunings } from "../utils/musicData";
 
 const tuningPresets = {
   "Standard (E)": ["E2", "A2", "D3", "G3", "B3", "E4"],
-  "Half Step Down (Eb)": ["Eb2", "Ab2", "Db3", "Gb3", "Bb3", "Eb4"],
+  "Half Step Down (D#/Eb)": ["D#2", "G#2", "C#3", "F#3", "A#3", "D#4"],
   "Full Step Down (D)": ["D2", "G2", "C3", "F3", "A3", "D4"],
   "Drop D": ["D2", "A2", "D3", "G3", "B3", "E4"],
   "Drop C": ["C2", "G2", "C3", "F3", "A3", "D4"],

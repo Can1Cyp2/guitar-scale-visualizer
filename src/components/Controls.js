@@ -36,6 +36,8 @@ const Controls = ({
   setRootNote,
   useFlats,
   setUseFlats,
+  capoFret,          
+  setCapoFret        
 }) => {
   const [selectedPreset, setSelectedPreset] = useState("Standard (E)");
 
@@ -43,6 +45,7 @@ const Controls = ({
     const newPreset = e.target.value;
     setSelectedPreset(newPreset);
     setTuning(tuningPresets[newPreset]);
+    setCapoFret(0); // Reset capo
   };
 
   return (
@@ -51,7 +54,7 @@ const Controls = ({
         className="toggle-sharp-flat"
         onClick={() => setUseFlats(!useFlats)}
       >
-        {useFlats ? "♯" : "♭"} {/* Convert Display to flats */}
+        {useFlats ? "♯" : "♭"}
       </button>
       <div className="root-scale-container">
         {/* Root Note Selector */}
@@ -89,7 +92,7 @@ const Controls = ({
         </div>
       </div>
 
-      {/* Tuning Selector (3x2 Grid) */}
+      {/* Tuning Selector */}
       <div className="tuning-container">
         <label name="tuning">Tuning:</label>
         <div className="tuning-select-wrapper">
@@ -137,7 +140,7 @@ const Controls = ({
           })}
         </div>
 
-        {/* Tuning Preset Selector (Below the Manual Tuning) */}
+        {/* Tuning Preset Selector */}
         <div className="control-group">
           <label htmlFor="tuningPreset" name="tuning-preset">
             Tuning Preset:
@@ -150,6 +153,23 @@ const Controls = ({
             {Object.keys(tuningPresets).map((preset) => (
               <option key={preset} value={preset}>
                 {preset}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Capo Selector */}
+        <div className="control-group">
+          <label htmlFor="capoFret">Capo Fret:</label>
+          <select
+            id="capoFret"
+            value={capoFret}
+            onChange={(e) => setCapoFret(parseInt(e.target.value))}
+          >
+            <option value={0}>No Capo</option>
+            {Array.from({ length: 12 }, (_, i) => i + 1).map((fret) => (
+              <option key={fret} value={fret}>
+                Fret {fret}
               </option>
             ))}
           </select>

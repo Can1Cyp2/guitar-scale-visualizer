@@ -1,3 +1,4 @@
+// App.js
 import React, { useState, useEffect } from "react";
 import Fretboard from "./components/Fretboard";
 import Controls from "./components/Controls";
@@ -9,10 +10,10 @@ function App() {
   const [rootNote, setRootNote] = useState("C");
   const [selectedScale, setSelectedScale] = useState(scales[0]);
   const [useFlats, setUseFlats] = useState(false);
+  const [capoFret, setCapoFret] = useState(0);
 
   const scaleNotes = getScaleNotes(`${rootNote}4`, selectedScale.intervals);
 
-  // Dynamically change the page title:
   useEffect(() => {
     document.title = "Guitar Scale Visualizer 🎸";
   }, []);
@@ -29,11 +30,14 @@ function App() {
         setRootNote={setRootNote}
         useFlats={useFlats}
         setUseFlats={setUseFlats}
+        capoFret={capoFret}          
+        setCapoFret={setCapoFret}    
       />
       <Fretboard
         tuning={tuning}
         selectedScale={{ ...selectedScale, notes: scaleNotes }}
         useFlats={useFlats}
+        capoFret={capoFret}          
       />
     </div>
   );

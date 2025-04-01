@@ -1,7 +1,7 @@
 export const tunings = {
   standard: ["E2", "A2", "D3", "G3", "B3", "E4"],
   notes: ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"],
-  octaves: [2, 3, 4],
+  octaves: [1, 2, 3, 4, 5, 6],
 };
 
 export const scales = [
